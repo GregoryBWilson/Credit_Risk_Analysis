@@ -2,158 +2,149 @@
 
 ## 1 Overview of the analysis
 
-Explain the purpose of this analysis.
+In this report we have employed different techniques to train and evaluate models with unbalanced classes.  We have used imbalanced-learn and scikit-learn libraries to build and evaluate models using resampling.
 
-- Overview of the loan prediction risk analysis:
-  - The purpose of this analysis is well defined **(4 pt)**
-- The written analysis has the following structure, organization, and formatting:
-  - There is a title, and there are multiple sections **(2 pt)**
-  - Each section has a heading and subheading **(2 pt)**
-  - Links to images are working, and code is formatted and displayed correctly **(2 pt)**.
-
-Therefore, you’ll need to employ different techniques to train and evaluate models with unbalanced classes. Jill asks you to use imbalanced-learn and scikit-learn libraries to build and evaluate models using resampling.
-
-Using the credit card credit dataset from LendingClub, a peer-to-peer lending services company, you’ll oversample the data using the RandomOverSampler and SMOTE algorithms, and undersample the data using the ClusterCentroids algorithm. Then, you’ll use a combinatorial approach of over- and undersampling using the SMOTEENN algorithm. Next, you’ll compare two new machine learning models that reduce bias, BalancedRandomForestClassifier and EasyEnsembleClassifier, to predict credit risk. Once you’re done, you’ll evaluate the performance of these models and make a written recommendation on whether they should be used to predict credit risk.
+We used a credit card credit dataset from LendingClub, a peer-to-peer lending services company, and oversampled the data using the RandomOverSampler and SMOTE algorithms, and undersample the data using the ClusterCentroids algorithm. Then,we used a combinatorial approach of over- and undersampling using the SMOTEENN algorithm.  Next, we compare two new machine learning models that reduce bias, BalancedRandomForestClassifier and EasyEnsembleClassifier, and predict credit risk. We have evaluated the performance of these models and make a written recommendation on whether LendingClub should use them to predict credit risk.
 
 ## 2 Results
 
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all six machine learning models. Use screenshots of your outputs to support your results.
+In this section we evaluated three machine learning models by using resampling to determine which is better at predicting credit risk.
 
-Results:
+Due to the natural of this particular analysis the results section is broken down as follows:
 
-- There is a bulleted list that describes the balanced accuracy score and the precision and recall scores of all six machine learning models **(15 pt)**
+2.1 Resampling Models used to Predict Credit Risk
 
-This new assignment consists of three technical analysis deliverables and a written report. You will submit the following:
+2.2 SMOTEENN Algorithm used to Predict Credit Risk
 
-- Deliverable 1: Use Resampling Models to Predict Credit Risk
-- Deliverable 2: Use the SMOTEENN Algorithm to Predict Credit Risk
-- Deliverable 3: Use Ensemble Classifiers to Predict Credit Risk
+2.3 Ensemble Classifiers used Predict Credit Risk
 
-### 2.1 Use Resampling Models to Predict Credit Risk 
+2.4 Comparison of machine learning models
 
-Using your knowledge of the `imbalanced-learn` and `scikit-learn` libraries, you’ll evaluate three machine learning models by using resampling to determine which is better at predicting credit risk. First, you’ll use the oversampling `RandomOverSampler` and `SMOTE` algorithms, and then you’ll use the undersampling `ClusterCentroids` algorithm. Using these algorithms, you’ll resample the dataset, view the count of the target classes, train a logistic regression classifier, calculate the balanced accuracy score, generate a confusion matrix, and generate a classification report.
+### 2.1 Resampling Models used to Predict Credit Risk 
 
-Using the information we’ve provided in the starter code, create your training and target variables by completing the following steps:
+In this section we evaluated three machine learning models by using resampling to determine which is better at predicting credit risk. First, we used the oversampling RandomOverSampler and SMOTE algorithms, and then we used the undersampling ClusterCentroids algorithm. Using these algorithms, we resampled the dataset, viewed the count of the target classes, trained a logistic regression classifier, calculated the balanced accuracy score, generated a confusion matrix, and a classification report.
 
-- Create the training variables by converting the string values into numerical ones using the `get_dummies()` method.
-- Create the target variables.
-- Check the balance of the target variables.
+Using the information provided in the starter code, we created our training and target variables by completing the following steps:
 
-Next, begin resampling the training data. First, use the oversampling `RandomOverSampler` and `SMOTE` algorithms to resample the data, then use the undersampling `ClusterCentroids` algorithm to resample the data. For each resampling algorithm, do the following:
+- Created the training variables by converting the string values into numerical ones using the get_dummies() method.
+- Created the target variables.
+- Checked the balance of the target variables.
 
-- Use the `LogisticRegression` classifier to make predictions and evaluate the model’s performance.
+Next, we resampled the training data. First, using the oversampling RandomOverSampler, then using the SMOTE algorithm and finally undersampling using the ClusterCentroids algorithm to resample the data. For each resampling algorithms, we did the following:
+
+- Used the LogisticRegression classifier to make predictions and evaluate the model’s performance.
 - Calculate the accuracy score of the model.
 - Generate a confusion matrix.
 - Print out the imbalanced classification report.
 
+The fully executed results can be found in the  credit_risk_resampling.ipynb notebook file in our Credit_Risk_Analysis folder.  For all three algorithms, the following have been completed:
 
+- An accuracy score for the model ws calculated
+- A confusion matrix has been generated
+- An imbalanced classification report has been generated
 
-Save your `credit_risk_resampling.ipynb` file to your Credit_Risk_Analysis folder.
+### 2.2 SMOTEENN algorithm used to Predict Credit Risk
 
-- For all three algorithms, the following have been completed:
-  - An accuracy score for the model is calculated **(7.5 pt)**
-  - A confusion matrix has been generated **(7.5 pt)**
-  - An imbalanced classification report has been generated **(15 pt)**
+In these section we used a combinatorial approach of over- and undersampling with the SMOTEENN algorithm to determine if the results from the combinatorial approach are better at predicting credit risk than the resampling algorithms discussed in section 2.1. Using the SMOTEENN algorithm, we resampled the dataset, viewed the count of the target classes, trained a logistic regression classifier, calculated the balanced accuracy score, generated a confusion matrix, and a classification report.  For this part of the analysis we continued using your credit_risk_resampling.ipynb notebook file where we had already created your training and target variables. The following additional steps were then added:
 
-### 2.2 Use the SMOTEENN algorithm to Predict Credit Risk
+- We resampled the training data using the SMOTEENN algorithm.
+- Used the LogisticRegression classifier to make predictions and evaluate the model’s performance.
+- Calculated the accuracy score of the model, generated a confusion matrix, and then printed out the imbalanced classification report.
 
-Using your knowledge of the `imbalanced-learn` and `scikit-learn` libraries, you’ll use a combinatorial approach of over- and undersampling with the `SMOTEENN` algorithm to determine if the results from the combinatorial approach are better at predicting credit risk than the resampling algorithms from Deliverable 1. Using the `SMOTEENN` algorithm, you’ll resample the dataset, view the count of the target classes, train a logistic regression classifier, calculate the balanced accuracy score, generate a confusion matrix, and generate a classification report.
+The fully executed results can be from in our credit_risk_resampling.ipynb notebook file in our Credit_Risk_Analysis folder.
 
-1. Continue using your `credit_risk_resampling.ipynb` file where you have already created your training and target variables.
-2. Using the information we have provided in the starter code, resample the training data using the `SMOTEENN` algorithm.
-3. After the data is resampled, use the `LogisticRegression` classifier to make predictions and evaluate the model’s performance.
-4. Calculate the accuracy score of the model, generate a confusion matrix, and then print out the imbalanced classification report.
+Using the combinatorial SMOTEENN algorithm we did the following:
+- An accuracy score for the model was calculated 
+- A confusion matrix has been generated 
+- An imbalanced classification report has been generated 
 
-Save your `credit_risk_resampling.ipynb` file to your Credit_Risk_Analysis folder.
+### 2.3 Ensemble Classifiers used to Predict Credit Risk
 
-- The combinatorial SMOTEENN algorithm does the following:
-  - An accuracy score for the model is calculated **(5 pt)**
-  - A confusion matrix has been generated **(5 pt)**
-  - An imbalanced classification report has been generated **(5 pt)**
+In this section we trained and compared two different ensemble classifiers, BalancedRandomForestClassifier and EasyEnsembleClassifier, to predict credit risk and evaluated each model. Using both algorithms, we resampled the dataset, viewed the count of the target classes, trained the ensemble classifier, calculated the balanced accuracy score, generated a confusion matrix, and generated a classification report.
 
-### 2.3 Use Ensemble Classifiers to Predict Credit Risk
+We created our training and target variables by completing the following:
 
-Using your knowledge of the `imblearn.ensemble` library, you’ll train and compare two different ensemble classifiers, `BalancedRandomForestClassifier` and `EasyEnsembleClassifier`, to predict credit risk and evaluate each model. Using both algorithms, you’ll resample the dataset, view the count of the target classes, train the ensemble classifier, calculate the balanced accuracy score, generate a confusion matrix, and generate a classification report.
+- Created the training variables by converting the string values into numerical ones using the get_dummies() method.
+- Created the target variables.
+- Checked the balance of the target variables.
 
-1. Using the information we have provided in the starter code, create your training and target variables by completing the following:
+We resampled the training data using the BalancedRandomForestClassifier algorithm with <u>100 estimators</u>.
 
-   - Create the training variables by converting the string values into numerical ones using the `get_dummies()` method.
-   - Create the target variables.
-   - Check the balance of the target variables.
+After the data was resampled, we calculated the accuracy score of the model, generated a confusion matrix, and then printed out the imbalanced classification report.
 
-2. Resample the training data using the
+We also printed the feature importance sorted in descending order , along with the feature score.
 
-    
+Next, we resampled the training data using the EasyEnsembleClassifier algorithm with <u>100 estimators</u>.
 
-   ```
-   BalancedRandomForestClassifier
-   ```
+After the data was resampled, we calculated the accuracy score of the model, generated a confusion matrix, and then printed out the imbalanced classification report.
 
-    
-
-   algorithm with 100 estimators.
-
-   - Consult the following [Random Forest documentation (Links to an external site.)](https://imbalanced-learn.org/stable/references/generated/imblearn.ensemble.BalancedRandomForestClassifier.html) for an example.
-
-3. After the data is resampled, calculate the accuracy score of the model, generate a confusion matrix, and then print out the imbalanced classification report.
-
-4. Print the feature importance sorted in descending order (from most to least important feature), along with the feature score.
-
-5. Next, resample the training data using the
-
-    
-
-   ```
-   EasyEnsembleClassifier
-   ```
-
-    
-
-   algorithm with 100 estimators.
-
-   - Consult the following [Easy Ensemble documentation (Links to an external site.)](https://imbalanced-learn.org/stable/references/generated/imblearn.ensemble.EasyEnsembleClassifier.html) for an example.
-
-6. After the data is resampled, calculate the accuracy score of the model, generate a confusion matrix, and then print out the imbalanced classification report.
-
-Save your `credit_risk_ensemble.ipynb` file to your Credit_Risk_Analysis folder.
+Finally we saved our credit_risk_ensemble.ipynb file to our Credit_Risk_Analysis folder.  The fully executed note demonstrates the following:
 
 - The BalancedRandomForestClassifier algorithm does the following:
-  - An accuracy score for the model is calculated **(2.5 pt)**
-  - A confusion matrix has been generated **(2.5 pt)**
-  - An imbalanced classification report has been generated **(5 pt)**
-  - The features are sorted in descending order by feature importance **(5 pt)**
+  - An accuracy score for the model is calculated
+  - A confusion matrix has been generated
+  - An imbalanced classification report has been generated 
+  - The features are sorted in descending order by feature importance
 - The EasyEnsembleClassifier algorithm does the following:
-  - An accuracy score of the model is calculated **(2.5 pt)**
-  - A confusion matrix has been generated **(2.5 pt)**
-  - An imbalanced classification report has been generated **(5 pt)**
+  - An accuracy score of the model is calculated
+  - A confusion matrix has been generated
+  - An imbalanced classification report has been generated
 
-### 3 Summary 
+### 2.4 Comparison of machine learning models 
 
-![Balanced_Accuracy_Score](Resources/Balanced_Accuracy_Score.png)
+The Jupyter Notebooks contain the various output that have been used to bring together the results that are summarized below for convenience.
 
+Table 1 is taken from the BAS table of the results_tables.xlsx file that is available in the Credit_Risk_Analysis folder.  The table has been sorted by column Balanced Accuracy Score from lowest to highest.
 
+![Balanced_Accuracy_Score](Resources/Balanced_Accuracy_Score.png "Table 1 - Comparison of Balanced Accuracy Scores")
 
-![Outcomes_Matrix](Resources/Outcomes_Matrix.png)
-
-
-
-<img src="https://render.githubusercontent.com/render/math?math=Precision =  \frac{TP}{(TP + FP)}
-\\\\True Positive Rate (TPR) Recall =  \frac{TP}{(TP + FN)} \\\\True Negative Rate (TNR) =  \frac{TN}{(TN + FP)} \\\\False Negative Rate (FNR) =  \frac{FN}{(FN + TP)} \\\\F1 Score = 2*\frac{Precision*Recall)}{Precision + Recall} \\\\Balanced Accuracy (BA) = \frac{(TPR + TNR)}{2}
-$$
-
-$$
-\begin{align*}
-Precision =  \frac{TP}{(TP + FP)} \\\\
-True Positive Rate (TPR) Recall =  \frac{TP}{(TP + FN)} \\\\
-True Negative Rate (TNR) =  \frac{TN}{(TN + FP)} \\\\
-False Negative Rate (FNR) =  \frac{FN}{(FN + TP)} \\\\
-F1 Score = 2*\frac{Precision*Recall)}{Precision + Recall} \\\\
-Balanced Accuracy (BA) = \frac{(TPR + TNR)}{2}
-\end{align*}
-$$
+***Table 1 - Comparison of Balanced Accuracy Scores***
 
 
-![Performace_Summary](Resources/Performance_Summary.png)
+
+Table 2 has been inserted to remind the read about the detailed behind predictions and actual results and how they should be interpreted.
+
+![Outcomes_Matrix](Resources/Outcomes_Matrix.png "Table 2 - Detailed Description of Outcomes Matrix")
+
+***Table 2 - Detailed Description of Outcomes Matrix***
+
+
+
+Table 3 is a screenshot of the confusion matrix of the Easy Ensemble Classifier and adaptive boosting algorithm.
+
+![Confusion_Matrix_AdaBoost](Resources/Confusion_Matrix_AdaBoost.png "Table 3 - Confusion Matrix AdaBoost")
+
+***Table 3 - Confusion Matrix AdaBoost***
+
+
+
+Table 4 is a screenshot of the imbalanced classification report from the same Easy Ensemble Classifier algorithm.
+
+![Imbalanced_Classification_Report_AdaBoost](Resources/Imbalanced_Classification_Report_AdaBoost.png "Table 4 - Imbalanced Classification Report AdaBoost")
+
+***Table 4 - Imbalanced Classification Report AdaBoost***
+
+The equations below have been implemented in the results_table.xlsx to calculate much of what can be found in the classification report.  For each of the six algorithms we created a tab in the results_tables.xlsx.  On these tabs we copied and pasted the confusion matrix and the classification reports from the Jupyter notebook.  Using only the confusion matrix numbers we then calculated every metric found in Table 5 and compared it to numbers form in the Jupyter Notebook results.  For example you will notice the numbers for BAS copied into Table 1 are exactly the same as those in Table 5. 
+
+![equations_used](C:\Users\Greg\Carleton\Credit_Risk_Analysis\Resources\equations_used.png)
+
+
+
+
+
+![Performace_Summary](Resources/Performance_Summary.png "Table 5 - Summary of Performance Metrics")
+
+***Table 5 - Summary of Performance Metrics***
+
+## 3 Summary 
+
+Precision
+
+All of the models have a high score for precision, but this is to be expected because the data set is so unbalanced.  If we had an algorithm that had only one outcome "Low-Risk"  it would stilled have a precision of 99.494%, so the precision metric should not be used in the assessment.
+
+Recall
+
+
 
 
 
