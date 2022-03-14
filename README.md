@@ -134,15 +134,17 @@ Save your `credit_risk_ensemble.ipynb` file to your Credit_Risk_Analysis folder.
 
 
 ![Outcomes_Matrix](Resources/Outcomes_Matrix.png)
-
-
-
-```latex
 $$
-Precison = \frac{TP }{TP + FP}
-$$
-```
 
+\begin{align*}
+Precision =  \frac{TP}{(TP + FP)} \\\\
+True Positive Rate (TPR) Recall =  \frac{TP}{(TP + FN)} \\\\
+True Negative Rate (TNR) =  \frac{TN}{(TN + FP)} \\\\
+False Negative Rate (FNR) =  \frac{FN}{(FN + TP)} \\\\
+F1 Score = 2*\frac{Precision*Recall)}{Precision + Recall} \\\\
+Balanced Accuracy (BA) = \frac{(TPR + TNR)}{2}
+\end{align*}
+$$
 
 
 ![Performace_Summary](Resources/Performance_Summary.png)
