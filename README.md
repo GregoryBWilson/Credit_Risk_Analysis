@@ -126,7 +126,7 @@ Table 4 is a screenshot of the imbalanced classification report from the same Ea
 
 The equations below have been implemented in the results_table.xlsx to calculate much of what can be found in the classification report.  For each of the six algorithms we created a tab in the results_tables.xlsx.  On these tabs we copied and pasted the confusion matrix and the classification reports from the Jupyter notebook.  Using only the confusion matrix numbers we then calculated every metric found in Table 5 and compared it to numbers found in the Jupyter Notebook results.  For example, you will notice the numbers for BAS copied into Table 1 are exactly the same as those in Table 5. 
 
-![equations_used](C:\Users\Greg\Carleton\Credit_Risk_Analysis\Resources\equations_used.png)
+![equations_used](Resources/equations_used.png)
 
 
 
