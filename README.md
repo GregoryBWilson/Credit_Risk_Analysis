@@ -94,7 +94,7 @@ Finally we saved our credit_risk_ensemble.ipynb file to our Credit_Risk_Analysis
 
 The Jupyter Notebooks contain the various output that have been used to bring together the results that are summarized below for convenience.
 
-Table 1 is taken from the BAS table of the results_tables.xlsx file that is available in the Credit_Risk_Analysis folder.  The table has been sorted by column Balanced Accuracy Score from lowest to highest.
+Table 1 is taken from the "BAS" tab of the results_tables.xlsx file that is available in the Credit_Risk_Analysis folder.  The table has been sorted by the column "Balanced Accuracy Score" from lowest to highest.
 
 ![Balanced_Accuracy_Score](Resources/Balanced_Accuracy_Score.png "Table 1 - Comparison of Balanced Accuracy Scores")
 
@@ -102,7 +102,7 @@ Table 1 is taken from the BAS table of the results_tables.xlsx file that is avai
 
 
 
-Table 2 has been inserted to remind the read about the detailed behind predictions and actual results and how they should be interpreted.
+Table 2 has been inserted to remind the reader about the details behind predictions and actual results and how they should be interpreted.
 
 ![Outcomes_Matrix](Resources/Outcomes_Matrix.png "Table 2 - Detailed Description of Outcomes Matrix")
 
@@ -110,7 +110,7 @@ Table 2 has been inserted to remind the read about the detailed behind predictio
 
 
 
-Table 3 is a screenshot of the confusion matrix of the Easy Ensemble Classifier and adaptive boosting algorithm.
+Table 3 is a screenshot of the confusion matrix of the Easy Ensemble Classifier, an adaptive boosting algorithm.
 
 ![Confusion_Matrix_AdaBoost](Resources/Confusion_Matrix_AdaBoost.png "Table 3 - Confusion Matrix AdaBoost")
 
@@ -124,7 +124,7 @@ Table 4 is a screenshot of the imbalanced classification report from the same Ea
 
 ***Table 4 - Imbalanced Classification Report AdaBoost***
 
-The equations below have been implemented in the results_table.xlsx to calculate much of what can be found in the classification report.  For each of the six algorithms we created a tab in the results_tables.xlsx.  On these tabs we copied and pasted the confusion matrix and the classification reports from the Jupyter notebook.  Using only the confusion matrix numbers we then calculated every metric found in Table 5 and compared it to numbers form in the Jupyter Notebook results.  For example you will notice the numbers for BAS copied into Table 1 are exactly the same as those in Table 5. 
+The equations below have been implemented in the results_table.xlsx to calculate much of what can be found in the classification report.  For each of the six algorithms we created a tab in the results_tables.xlsx.  On these tabs we copied and pasted the confusion matrix and the classification reports from the Jupyter notebook.  Using only the confusion matrix numbers we then calculated every metric found in Table 5 and compared it to numbers found in the Jupyter Notebook results.  For example, you will notice the numbers for BAS copied into Table 1 are exactly the same as those in Table 5. 
 
 ![equations_used](C:\Users\Greg\Carleton\Credit_Risk_Analysis\Resources\equations_used.png)
 
@@ -138,18 +138,28 @@ The equations below have been implemented in the results_table.xlsx to calculate
 
 ## 3 Summary 
 
-Precision
+In the sections below is a discussion of a number of important metrics that have  been calculated and verified.  While it may seem obvious that the Easy Ensemble classifier is being recommend for use by LendingClub we would recommend that you review the details as they truly support the case that this algorithm is significantly better for your purpose.
+
+### 3.1 Precision
 
 All of the models have a high score for precision, but this is to be expected because the data set is so unbalanced.  If we had an algorithm that had only one outcome "Low-Risk"  it would stilled have a precision of 99.494%, so the precision metric should not be used in the assessment.
 
-Recall
+### 3.2 Recall
 
+The true positive rate (TPR, also called sensitivity or recall) is the probability that an actual positive will test positive.  You can see from the results that the Cluster Centroids is particularly bad at accurately predicting low-risk credit scores.  You will also notice that both the Balanced Random Forest and Easy Ensemble classifiers preformed well. Recall is important in identifying low-risk credit accurately to reduce the number of files you need to investigate.  
 
+### 3.3 Specificity
 
+The true negative rate ( TNR also called specificity), is the probability that an actual negative will test negative.  The only classifier that performed well in this category was the Easy Ensemble classifier.  This measure is particularly important since the objective of the machine learning algorithm is to identify high-risk loans.  Notice how poorly the Balanced Random Forest classifier performed in this metric in comparison to the Easy Ensemble classifier.
 
+### 3.4 False Negative Rate
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. If you do not recommend any of the models, justify your reasoning.
+The false negative rate is the proportion of positives which yield negative test outcomes.  This is a useful measurement in that it validates that the TPR has been correcting calculated since the sum of the two should equal 1.0.  Again the Easy Ensemble classifier is the best.
 
-- Summary:
-  - There is a summary of the results **(2 pt)**
-  - There is a recommendation on which model to use, or there is no recommendation with a justification **(3 pt)**
+### 3.5 F1 Score
+
+The highest possible value of an F-score is 1.0, indicating perfect precision and recall, and the lowest possible value is 0, if either the precision or the recall is zero.   In this case the F1 score is not really much more valuable than the recall since the precision value is nearly 1.0 for all algorithms.  You will however, notice that the F1 score did indicate that for this metric SMOTE was better than SMOTEENN.
+
+### 3.6 Balanced Accuracy
+
+The Balanced Accuracy (BA) score relies on two important metrics the True Negative Rate (TNR) and the True Positive Rate (TNR).  Since the Easy Ensemble classifier performed best in both these categories its BA is much higher than all other algorithms for this imbalanced data set. 
